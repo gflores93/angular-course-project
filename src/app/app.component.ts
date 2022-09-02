@@ -6,10 +6,4 @@ import { Recipe } from './recipes/recipe.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  loadedFeature = 'recipe';
-
-  onNavigate(feature: string) {
-    this.loadedFeature = feature;
-  }
-}
+export class AppComponent {}
