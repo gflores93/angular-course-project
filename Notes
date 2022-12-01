@@ -1,0 +1,15 @@
+* Section 13:
+    - Observables: Are constructs to which you subscribe to be informed about changes in data
+    - In order to get data from an Observable it is required to call subscribe() method. Calling a method that returns an Observable won't give back data until you subscribe to that response. Alternatively the async pipe can be used in the template to subscribe to an Observable
+    - When there is an error in an Observable, the Observable stops emiting, so the Observable is not completed and unsubscription in that case is not necessary
+    - When the Observable completes (in case it does), it stops emitting values. complete function doesn't pass any values
+    - It is important to create a Subscription to store the subscriptions and implement onDestroy to unsubscribe whener the component is left. To prevent memory leaks and leading errors with inconsistent data.
+    - Operators: used to transform the data received before the subscription
+        - pipe() - all the observables can use this method to apply operators; it can take unlimited amount of operateros as argument and they will execute after each other
+            - map(): receives an anonymous method, and it is used to modify the data received
+            - filter()
+    - Subjects: Is a special kind of Observable, but it can also be used to emit data calling it from outside of its definition
+        - Used instead of EventEmitter as a cross component event emitter through services, where you manually call .next() and also have subscriptions to it
+        - You don't use Subjects instead of EventEmitters when using @Output (Output data binding, without subscriptions)
+        - next() instead of emit()
+    
